@@ -81,16 +81,16 @@ jobs:
         if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         uses: aws-actions/configure-aws-credentials@v6.3.0
         with:
-          role-to-assume: arn:aws:iam::360582629770:role/DeployIQGitHubECRRole
+          role-to-assume: arn:aws:iam::732529884848:role/DeployIQGitHubECRRole
           aws-region: us-east-1
-          allowed-account-ids: '360582629770'
+          allowed-account-ids: '732529884848'
       - name: Log in to Amazon ECR
         if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         uses: aws-actions/amazon-ecr-login@v2
       - name: Upload tested image to ECR
         if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         env:
-          ECR_REPOSITORY: 360582629770.dkr.ecr.us-east-1.amazonaws.com/deployiqsample
+          ECR_REPOSITORY: 732529884848.dkr.ecr.us-east-1.amazonaws.com/deployiqsample
         run: |
           IMAGE_URI="$ECR_REPOSITORY:$GITHUB_SHA-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT"
           docker tag deployiq-sample:ci "$IMAGE_URI"
@@ -99,6 +99,6 @@ jobs:
       - name: Deploy release to EC2
         if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
         env:
-          EC2_INSTANCE_ID: i-0e4717493127d0d23
-          IMAGE_URI: 360582629770.dkr.ecr.us-east-1.amazonaws.com/deployiqsample:${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
+          EC2_INSTANCE_ID: i-0433f54131bf4562e
+          IMAGE_URI: 732529884848.dkr.ecr.us-east-1.amazonaws.com/deployiqsample:${{ github.sha }}-${{ github.run_id }}-${{ github.run_attempt }}
         run: python3 infrastructure/scripts/deploy_ssm.py
