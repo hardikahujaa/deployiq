@@ -11,7 +11,7 @@ authentication, storage, and dashboard; Groq supplies AI inference.
 The dashboard requires an invited Cognito team login. Its public URL does not
 provide public access to pipeline data.
 
-## What the project does
+## What the project does 
 
 - Tests a FastAPI service, builds and smoke-tests its Docker image, then publishes
   an immutable release to private Amazon ECR.
