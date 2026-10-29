@@ -53,6 +53,6 @@ jobs:
         with:
           role-to-assume: ${{ env.DASHBOARD_PUBLISH_ROLE_ARN }}
           aws-region: us-east-1
-          allowed-account-ids: '360582629770'
+          allowed-account-ids: '732529884848'
       - name: Publish dashboard and refresh CloudFront
         run: bash infrastructure/scripts/publish_dashboard.sh

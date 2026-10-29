@@ -6,14 +6,14 @@
       "Effect": "Allow",
       "Action": "ssm:SendCommand",
       "Resource": [
-        "arn:aws:ec2:us-east-1:360582629770:instance/i-0e4717493127d0d23",
+        "arn:aws:ec2:us-east-1:732529884848:instance/i-0433f54131bf4562e",
         "arn:aws:ssm:us-east-1::document/AWS-RunShellScript"
       ]
     },
     {
       "Sid": "ReadDeploymentResult",
       "Effect": "Allow",
-      "Action": "ssm:GetCommandInvocation",
+      "Action": ["ssm:GetCommandInvocation", "ssm:ListCommandInvocations"],
       "Resource": "*"
     }
   ]

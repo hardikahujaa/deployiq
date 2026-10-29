@@ -3,7 +3,7 @@
 set -Eeuo pipefail
 IMAGE_URI="${1:?Image URI required}"
 APP_VERSION="${2:?Release version required}"
-REGISTRY=360582629770.dkr.ecr.us-east-1.amazonaws.com
+REGISTRY=732529884848.dkr.ecr.us-east-1.amazonaws.com
 [[ "$IMAGE_URI" == "$REGISTRY/deployiqsample:"* ]] || exit 2
 exec 9>"${DEPLOYIQ_LOCK_FILE:-/var/lock/deployiq-deploy.lock}"
 flock -n 9 || { echo 'Another deployment is active'; exit 1; }
