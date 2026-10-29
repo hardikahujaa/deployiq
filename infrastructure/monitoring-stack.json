@@ -951,7 +951,7 @@
               "Condition": {
                 "StringEquals": {
                   "token.actions.githubusercontent.com:aud": "sts.amazonaws.com",
-                  "token.actions.githubusercontent.com:sub": "repo:Bhanuch2006@182192635/deployiq@1421278672:ref:refs/heads/main"
+                  "token.actions.githubusercontent.com:sub": "repo:hardikahujaa@255485039/deployiq@1437658122:ref:refs/heads/main"
                 }
               }
             }

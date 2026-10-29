@@ -58,7 +58,7 @@ def add_hosting(template):
     r["DashboardPublishRole"] = {
         "Type": "AWS::IAM::Role",
         "Properties": {
-            "AssumeRolePolicyDocument": {"Version": "2012-10-17", "Statement": [{"Effect": "Allow", "Principal": {"Federated": sub("arn:${AWS::Partition}:iam::${AWS::AccountId}:oidc-provider/token.actions.githubusercontent.com")}, "Action": "sts:AssumeRoleWithWebIdentity", "Condition": {"StringEquals": {"token.actions.githubusercontent.com:aud": "sts.amazonaws.com", "token.actions.githubusercontent.com:sub": "repo:Bhanuch2006@182192635/deployiq@1421278672:ref:refs/heads/main"}}}]},
+            "AssumeRolePolicyDocument": {"Version": "2012-10-17", "Statement": [{"Effect": "Allow", "Principal": {"Federated": sub("arn:${AWS::Partition}:iam::${AWS::AccountId}:oidc-provider/token.actions.githubusercontent.com")}, "Action": "sts:AssumeRoleWithWebIdentity", "Condition": {"StringEquals": {"token.actions.githubusercontent.com:aud": "sts.amazonaws.com", "token.actions.githubusercontent.com:sub": "repo:hardikahujaa@255485039/deployiq@1437658122:ref:refs/heads/main"}}}]},
             "Policies": [{"PolicyName": "PublishDashboard", "PolicyDocument": {"Version": "2012-10-17", "Statement": [
                 {"Effect": "Allow", "Action": "s3:ListBucket", "Resource": get("DashboardBucket", "Arn")},
                 {"Effect": "Allow", "Action": "s3:PutObject", "Resource": sub("${DashboardBucket.Arn}/*")},
